@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       cardsArray: [],
+      flag: false,
     };
   },
   created() {
@@ -19,6 +20,7 @@ export default {
       .then((resp) => {
         this.cardsArray = resp.data.results;
         console.log(resp);
+        this.flag=true;
       });
   },
 };
@@ -28,8 +30,12 @@ export default {
   <div class="container">
     <h1>Rick and Morty App</h1>
   </div>
-
-  <CardsList :cardsArray="cardsArray" />
+  <div v-if="flag" >
+     <CardsList :cardsArray="cardsArray" />
+</div>
+  <div v-else class="container">
+    <h1>Caricamento in corso</h1>
+  </div>
 </template>
 
 <style lang="scss">
