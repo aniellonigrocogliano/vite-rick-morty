@@ -1,9 +1,10 @@
 <script>
 import axios from "axios";
+import CardsList from "./components/CardsList.vue";
 
 export default {
   components: {
-   
+    CardsList,
   },
   data() {
     return {
@@ -16,15 +17,15 @@ export default {
   
       })
       .then((resp) => {
+        this.cardsArray = resp.data.results;
         console.log(resp);
-        this.cardsArray = resp.results;
-        console.log(this.cardsArray);
       });
   },
 };
 </script>
 
 <template>
+  <CardsList :cardsArray="cardsArray" />
 </template>
 
 <style lang="scss">
