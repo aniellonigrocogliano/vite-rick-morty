@@ -16,8 +16,9 @@ export default {
   <div class="card">
     <img :src="image" alt="" />
     <div class="card-body">
-      <h4>{{ }}</h4>
-      <p>{{  }}</p>
+      <h4>{{ cardObj.name}}</h4>
+      <p>{{ cardObj.status }}</p>
+      <p>{{ cardObj.species }}</p>
     </div>
   </div>
 </template>
