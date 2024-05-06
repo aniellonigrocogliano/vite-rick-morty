@@ -25,9 +25,15 @@ export default {
 </script>
 
 <template>
+  <div class="container">
+    <h1>Rick and Morty App</h1>
+  </div>
+
   <CardsList :cardsArray="cardsArray" />
 </template>
 
 <style lang="scss">
-
+h1{
+  text-align: center;
+}
 </style>
