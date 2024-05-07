@@ -1,4 +1,5 @@
 <script>
+import { store } from "./store";
 import axios from "axios";
 import CardsList from "./components/CardsList.vue";
 
@@ -9,19 +10,32 @@ export default {
   data() {
     return {
       cardsArray: [],
-      flag: false,
+      flag: true,
+      store,
     };
   },
   created() {
-    axios
-      .get("https://rickandmortyapi.com/api/character", {
-  
-      })
-      .then((resp) => {
+    this.getCards();
+  },
+  methods: {
+    getCards() {
+      this.flag=false
+      const paramsObj = {
+        num: 20,
+        offset: 0,
+      };
+      if (this.store.selectedStatus !== "All") {
+        paramsObj.status = this.store.selectedStatus;
+      }
+      axios
+        .get("https://rickandmortyapi.com/api/character", {
+          params: paramsObj,
+        })
+        .then((resp) => {
         this.cardsArray = resp.data.results;
-        console.log(resp);
         this.flag=true;
-      });
+        });
+    },
   },
 };
 </script>
