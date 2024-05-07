@@ -2,16 +2,19 @@
 import { store } from "./store";
 import axios from "axios";
 import CardsList from "./components/CardsList.vue";
+import AppSearchTab from "./components/AppSearchTab.vue";
 
 export default {
   components: {
     CardsList,
+    AppSearchTab,
   },
   data() {
     return {
       cardsArray: [],
       flag: true,
       store,
+      
     };
   },
   created() {
@@ -43,6 +46,7 @@ export default {
 <template>
   <div class="container">
     <h1>Rick and Morty App</h1>
+    <AppSearchTab @filter="getCards" />
   </div>
   <div v-if="flag" >
      <CardsList :cardsArray="cardsArray" />
