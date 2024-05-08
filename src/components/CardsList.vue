@@ -1,15 +1,15 @@
 <script>
 import AppCard from "./AppCard.vue";
+import { store } from "../store";
 
 export default {
   components: {
     AppCard,
   },
-  props: {
-    cardsArray: Array,
-  },
   data() {
-    return {};
+    return {
+      store,
+    };
   },
 };
 </script>
@@ -18,7 +18,7 @@ export default {
   <div class="container">
     
     <div class="row row-cols-4">
-      <div class="col" v-for="card in cardsArray">
+      <div class="col" v-for="card in store.cardsArray">
         <AppCard :cardObj="card"/>
       </div>
     </div>

@@ -29,5 +29,7 @@ img{
 }
 .card{
     border: none;
+    background:none;
 }
+
 </style>

@@ -11,7 +11,6 @@ export default {
   },
   data() {
     return {
-      cardsArray: [],
       flag: true,
       store,
       
@@ -35,7 +34,7 @@ export default {
           params: paramsObj,
         })
         .then((resp) => {
-        this.cardsArray = resp.data.results;
+        this.store.cardsArray = resp.data.results;
         this.flag=true;
         });
     },
@@ -49,7 +48,7 @@ export default {
     <AppSearchTab @filter="getCards" />
   </div>
   <div v-if="flag" >
-     <CardsList :cardsArray="cardsArray" />
+     <CardsList :store.cardsList="store.cardsList" />
 </div>
   <div v-else class="container">
     <h1>Caricamento in corso</h1>
@@ -60,4 +59,10 @@ export default {
 h1{
   text-align: center;
 }
+
+body {
+    background-image: 
+            repeating-linear-gradient(90deg, rgba(238, 238, 238,0.5) 0px, rgba(238, 238, 238,0.5) 20px,transparent 20px, transparent 40px),repeating-linear-gradient(0deg, rgba(238, 238, 238,0.5) 0px, rgba(238, 238, 238,0.5) 20px,transparent 20px, transparent 40px),
+            linear-gradient(90deg, rgb(255, 255, 255),rgb(255,255,255));
+            }
 </style>

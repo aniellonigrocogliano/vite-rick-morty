@@ -14,6 +14,7 @@ export default {
   <div class="container py-4">
     <div class="d-flex justify-content-between">
       <div>
+        Filtra la lista dei personaggi per il loro status:
         <select @change="$emit('filter')" v-model="store.selectedStatus">
           <option :value="status" v-for="status in status">
             {{ status }}
@@ -21,7 +22,7 @@ export default {
         </select>
       </div>
 
-      <!-- <p>Ci sono {{ store.cardsList.length }} personaggi mostrati</p> -->
+      <p>Ci sono {{ store.cardsArray.length }} personaggi mostrati</p>
     </div>
   </div>
 </template>
